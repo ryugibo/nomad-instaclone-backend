@@ -5,9 +5,8 @@ import schema from "./schema";
 
 const server = new ApolloServer({
   schema,
-  context: {
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUzNDgxMjg4fQ.K0NVOWb-h3PW087qW-_nShxyG2uWsWpUpoxtf5fVQLc",
+  context: ({ req }) => {
+    return { token: req.headers.token };
   },
 });
 

@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import client from "../../client";
 
 export default {
@@ -7,8 +6,9 @@ export default {
     editProfile: async (
       _,
       { firstName, lastName, userName, email, password: newPassword },
-      { loggedInUser }
+      { loggedInUser, protectResolver }
     ) => {
+      protectResolver(loggedInUser);
       let uglyPassword = null;
       if (newPassword) {
         uglyPassword = await bcrypt.hash(newPassword, 10);

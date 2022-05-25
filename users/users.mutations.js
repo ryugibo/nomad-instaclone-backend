@@ -28,5 +28,18 @@ export default {
         return e;
       }
     },
+    login: async (_, { userName, password }) => {
+      const user = await client.user.findFirst({ where: { userName } });
+      if (!user) {
+        return { ok: false, error: "User not found" };
+      }
+      const passwordOk = await bcrypt.compare(password, user.password);
+      if (!passwordOk) {
+        return {
+          ok: false,
+          error: "Incorrect password.",
+        };
+      }
+    },
   },
 };

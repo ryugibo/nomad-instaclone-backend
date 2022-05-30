@@ -6,7 +6,10 @@
     "preinstall": "npx npm-force-resolutions@0.0.3",
     "dev": "nodemon --exec babel-node server --delay 2",
     "migrate": "npx prisma migrate dev",
-    "studio": "npx prisma studio"
+    "studio": "npx prisma studio",
+    "postgresql_status": "sudo service postgresql status",
+    "postgresql_start": "sudo service postgresql start",
+    "postgresql_stop": "sudo service postgresql stop"
   },
   "repository": {
     "type": "git",

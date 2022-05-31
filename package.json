@@ -39,6 +39,7 @@
     "@babel/node": "^7.17.10",
     "@babel/preset-env": "^7.18.0",
     "nodemon": "^2.0.16",
+    "prettier-plugin-prisma": "^3.14.0",
     "prisma": "^3.14.0"
   },
   "resolutions": {

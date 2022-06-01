@@ -9,4 +9,12 @@ export default {
       return client.hashtag.findMany({ where: { photos: { some: { id } } } });
     },
   },
+  Hashtag: {
+    photos: ({ id }, { page }, { loggedInUser }) => {
+      return client.hashtag.findUnique({ where: { id } }).photos();
+    },
+    totalPhotos: ({ id }) => {
+      return client.photo.count({ where: { hashtags: { some: { id } } } });
+    },
+  },
 };

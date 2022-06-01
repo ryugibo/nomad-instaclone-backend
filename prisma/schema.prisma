@@ -32,15 +32,15 @@ model Photo {
   userId    Int
   file      String
   caption   String?
-  hashtags  HashTag[]
+  hashtag   Hashtag[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
 
-model HashTag {
+model Hashtag {
   id        Int      @id @default(autoincrement())
   hashtag   String   @unique
-  photoso   Photo[]
+  photos    Photo[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

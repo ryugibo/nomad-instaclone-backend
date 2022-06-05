@@ -5,6 +5,7 @@ import logger from "morgan";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./schema";
 import { getUser } from "./users/users.utils";
+import pubsub from "./pubsub";
 
 const PORT = process.env.PORT;
 
@@ -21,6 +22,7 @@ app.use(logger("tiny"));
 app.use("/static", express.static("uploads"));
 
 apollo.applyMiddleware({ app });
+apollo.installSubscriptionHandlers(app);
 
 app.listen({ port: PORT }, () => {
   console.log(`Server is running on http://localhost:${PORT}/graphql`);

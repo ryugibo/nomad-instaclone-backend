@@ -7,10 +7,11 @@ export default gql`
     file: String!
     caption: String
     hashtags: [Hashtag]
+    likes: Int!
+    comments: Int!
     isMine: Boolean!
     createdAt: String!
     updatedAt: String!
-    likes: Int!
   }
   type Hashtag {
     id: Int!

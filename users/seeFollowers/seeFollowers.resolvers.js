@@ -10,7 +10,6 @@ export default {
       if (!ok) {
         return { ok: false, error: "That user does not exist." };
       }
-      console.log(ok);
       const followers = await client.user
         .findUnique({ where: { userName } })
         .followers({ take: 5, skip: 5 * (page - 1) });
